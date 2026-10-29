@@ -156,6 +156,7 @@ and these zstyles to customize styles::
   ':filter-select' escape-descriptions
   ':zaw:<source-name>' default <func_name>
   ':zaw:<source-name>' alt <func_name>
+  ':zaw:<source-name>' insert-separator <string>
 
   example:
     zstyle ':filter-select:highlight' matched fg=yellow,standout
@@ -168,6 +169,7 @@ and these zstyles to customize styles::
     zstyle ':filter-select' escape-descriptions no # display literal newlines, not \n, etc
     zstyle ':zaw:git-files' default zaw-callback-append-to-buffer # set default action for git-files
     zstyle ':zaw:git-files' alt zaw-callback-edit-file # set the alt action for git-files
+    zstyle ':zaw:git-files' insert-separator ' ' # join multiple selections with this when inserting or appending (default: per source, usually ' ')
 
   extended-search:
       If this style set to be true value, the searching bahavior will be

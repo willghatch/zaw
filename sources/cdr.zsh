@@ -9,8 +9,8 @@
 function zaw-src-cdr () {
     setopt local_options extended_glob
     : ${(A)candidates::=${${(f)"$(cdr -l)"}##<-> ##}}
-    actions=(zaw-src-cdr-cd zaw-src-cdr-insert zaw-src-cdr-prune)
-    act_descriptions=("cd" "insert" "prune")
+    actions=(zaw-src-cdr-cd zaw-src-cdr-insert zaw-src-cdr-append zaw-src-cdr-prune)
+    act_descriptions=("cd" "insert" "append" "prune")
     src_opts=("-m" "-s" "${BUFFER##cd(r|) }")
 }
 
@@ -23,6 +23,13 @@ function zaw-src-cdr-insert () {
     [[ -z "$LBUFFER" ]] || LBUFFER+=" "
     [[ "$LBUFFER[-1]" == " " ]] || LBUFFER+=" "
     LBUFFER+="${(j. .)@}"
+}
+
+function zaw-src-cdr-append () {
+    [[ -z "$BUFFER" ]] || BUFFER+=" "
+    [[ "$BUFFER[-1]" == " " ]] || BUFFER+=" "
+    BUFFER+="${(j. .)@}"
+    CURSOR=${#BUFFER}
 }
 
 function zaw-src-cdr-prune () {

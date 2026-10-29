@@ -32,8 +32,8 @@ function zaw-src-open-file() {
         cand_descriptions+=("${f:t}")
     done
 
-    actions=( "zaw-callback-open-file" "zaw-callback-append-to-buffer" )
-    act_descriptions=( "open file or directory" "append to edit buffer" )
+    actions=( "zaw-callback-open-file" "zaw-callback-append-to-buffer" "zaw-callback-insert-to-buffer" )
+    act_descriptions=( "open file or directory" "append to edit buffer" "insert into edit buffer" )
     # TODO: open multiple files
     #src_opts=( "-m" )
     src_opts=( "-t" "${root}" )

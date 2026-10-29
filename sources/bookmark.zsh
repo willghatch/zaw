@@ -15,8 +15,8 @@ function zaw-src-bookmark() {
     if [[ -f "${BOOKMARKFILE}" ]]; then
         candidates=("${(Qf)$(zsystem flock -r "${BOOKMARKFILE}" && < "${BOOKMARKFILE}")}")
     fi
-    actions=("zaw-bookmark-execute" "zaw-callback-replace-buffer" "zaw-callback-append-to-buffer" "zaw-bookmark-remove")
-    act_descriptions=("execute" "replace edit buffer" "append to edit buffer" "removed bookmark")
+    actions=("zaw-bookmark-execute" "zaw-callback-replace-buffer" "zaw-callback-append-to-buffer" "zaw-callback-insert-to-buffer" "zaw-bookmark-remove")
+    act_descriptions=("execute" "replace edit buffer" "append to edit buffer" "insert into edit buffer" "removed bookmark")
     src_opts=("-m")
 }
 

@@ -26,9 +26,9 @@ function zaw-src-ssh-hosts(){
   )
   candidates=(${(iou)candidates[@]})
 
-  actions=("zaw-callback-ssh-connect" "zaw-callback-append-to-buffer" )
+  actions=("zaw-callback-ssh-connect" "zaw-callback-append-to-buffer" "zaw-callback-insert-to-buffer" )
 
-  act_descriptions=("ssh to the host" "append to edit buffer")
+  act_descriptions=("ssh to the host" "append to edit buffer" "insert into edit buffer")
 }
 
 zaw-register-src -n ssh-hosts zaw-src-ssh-hosts

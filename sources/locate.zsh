@@ -11,8 +11,8 @@ function zaw-src-locate() {
     fi
     : ${(A)candidates::=${(f)buf}}
     : ${(A)cand_descriptions::=${(f)buf}}
-    actions=( zaw-callback-append-to-buffer )
-    act_descriptions=( "append to buffer" )
+    actions=( zaw-callback-append-to-buffer zaw-callback-insert-to-buffer )
+    act_descriptions=( "append to buffer" "insert into edit buffer" )
 }
 
 zaw-register-src -n locate zaw-src-locate

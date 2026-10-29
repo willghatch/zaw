@@ -12,8 +12,8 @@ function zaw-src-process () {
     pid_list="$(echo $ps | awk '{print $2}')"
     : ${(A)candidates::=${(f)pid_list}}
     : ${(A)cand_descriptions::=${(f)ps}}
-    actions=(zaw-callback-append-to-buffer zaw-src-process-kill)
-    act_descriptions=("insert" "kill")
+    actions=(zaw-callback-append-to-buffer zaw-callback-insert-to-buffer zaw-src-process-kill)
+    act_descriptions=("append to edit buffer" "insert into edit buffer" "kill")
     src_opts=(-t "$title")
 }
 

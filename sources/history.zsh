@@ -10,8 +10,10 @@ function zaw-src-history() {
         # somehow, `cands_assoc` gets reversed while `candidates` doesn't. 
         src_opts=("-r" "-m" "-s" "${BUFFER}")
     fi
-    actions=("zaw-callback-execute" "zaw-callback-replace-buffer" "zaw-callback-append-to-buffer")
-    act_descriptions=("execute" "replace edit buffer" "append to edit buffer")
+    actions=("zaw-callback-execute" "zaw-callback-replace-buffer" "zaw-callback-append-to-buffer" "zaw-callback-insert-to-buffer")
+    act_descriptions=("execute" "replace edit buffer" "append to edit buffer" "insert into edit buffer")
+    # multiple commands inserted together become a command list
+    insert_separator="; "
 
     if (( $+functions[zaw-bookmark-add] )); then
         # zaw-src-bookmark is available

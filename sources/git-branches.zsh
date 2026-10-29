@@ -11,6 +11,7 @@ function zaw-src-git-branches() {
         zaw-src-git-branches-checkout \
         zaw-src-git-branches-simple-checkout \
         zaw-callback-append-to-buffer \
+        zaw-callback-insert-to-buffer \
         zaw-src-git-branches-merge \
         zaw-src-git-branches-merge-rebase \
         zaw-src-git-branches-merge-no-ff \
@@ -28,6 +29,7 @@ function zaw-src-git-branches() {
         "check out locally" \
         "check out" \
         "append to edit buffer" \
+        "insert into edit buffer" \
         "merge" \
         "merge rebase" \
         "merge no ff" \

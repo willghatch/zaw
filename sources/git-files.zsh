@@ -14,8 +14,8 @@ function zaw-src-git-files-raw() {
         return ret
     fi
 
-    actions=(zaw-callback-edit-file zaw-src-git-status-add zaw-src-git-status-add-p zaw-src-git-status-reset zaw-src-git-status-checkout zaw-src-git-status-rm zaw-callback-append-to-buffer)
-    act_descriptions=("edit file" "add" "add -p" "reset" "checkout" "rm" "append to edit buffer")
+    actions=(zaw-callback-edit-file zaw-src-git-status-add zaw-src-git-status-add-p zaw-src-git-status-reset zaw-src-git-status-checkout zaw-src-git-status-rm zaw-callback-append-to-buffer zaw-callback-insert-to-buffer)
+    act_descriptions=("edit file" "add" "add -p" "reset" "checkout" "rm" "append to edit buffer" "insert into edit buffer")
     src_opts=(-m -n)
     return 0
 }

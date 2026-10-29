@@ -44,6 +44,7 @@ function zaw-register-src() {
     # $actions           -> list of callback function names that receive selected item
     # $act_descriptions  -> (optional) list of callback function descriptions
     # $src_opts           -> (optional) array of src_opts passed to filter-select
+    # $insert_separator  -> (optional) string joining multiple selections in zaw-callback-insert-to-buffer and zaw-callback-append-to-buffer (default " ")
     #
     # whether one of candidates or cands-assoc is required
     local name func widget_name opts OPTARG OPTIND
@@ -96,6 +97,7 @@ function zaw-action() {
 
 function zaw() {
     local action ret func name
+    local insert_separator=" "
     local -a reply candidates actions act_descriptions src_opts selected cand_descriptions
     local -A cands_assoc
 
@@ -217,9 +219,22 @@ function zaw-callback-replace-buffer() {
     RBUFFER=""
 }
 
+# separator for joining multiple selections in insert/append callbacks
+function zaw-insert-separator() {
+    local sep
+    zstyle -s ":zaw:${name}" insert-separator sep || sep="${insert_separator- }"
+    print -rn -- "$sep"
+}
+
 function zaw-callback-append-to-buffer() {
-    BUFFER+="${(j:; :)@}"
+    local sep="$(zaw-insert-separator)"
+    BUFFER+="${(pj:$sep:)@}"
     CURSOR=${#BUFFER}
+}
+
+function zaw-callback-insert-to-buffer() {
+    local sep="$(zaw-insert-separator)"
+    LBUFFER+="${(pj:$sep:)@}"
 }
 
 function zaw-callback-edit-file() {

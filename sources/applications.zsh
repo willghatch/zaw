@@ -30,8 +30,8 @@ function zaw-src-applications() {
             candidates+=({,~}/Applications{,/Utilities}/*.app(N^M) /System/Library/CoreServices/*.app(N^M))
 
             candidates=(${(iou)candidates[@]})
-            actions=("zaw-callback-launch-macapp" "zaw-callback-append-to-buffer")
-            act_descriptions=("execute application" "append to edit buffer")
+            actions=("zaw-callback-launch-macapp" "zaw-callback-append-to-buffer" "zaw-callback-insert-to-buffer")
+            act_descriptions=("execute application" "append to edit buffer" "insert into edit buffer")
             ;;
         [Ll]inux*|*[Bb][Ss][Dd]*|[Ss]olaris*|[Ss]un[Oo][Ss]*)
             local d
@@ -75,14 +75,14 @@ function zaw-src-applications() {
                 candidates+=( "${exec_}" )
                 cand_descriptions+=( "${name} - ${comment}" )
             done
-            actions=("zaw-callback-execute" "zaw-callback-append-to-buffer")
-            act_descriptions=("execute application" "append to edit buffer")
+            actions=("zaw-callback-execute" "zaw-callback-append-to-buffer" "zaw-callback-insert-to-buffer")
+            act_descriptions=("execute application" "append to edit buffer" "insert into edit buffer")
             ;;
         *)
             # Unsupported OS
             candidates=( )
-            actions=("zaw-callback-execute" "zaw-callback-append-to-buffer")
-            act_descriptions=("execute application" "append to edit buffer")
+            actions=("zaw-callback-execute" "zaw-callback-append-to-buffer" "zaw-callback-insert-to-buffer")
+            act_descriptions=("execute application" "append to edit buffer" "insert into edit buffer")
             ;;
     esac
 

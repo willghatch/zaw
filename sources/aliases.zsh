@@ -1,7 +1,7 @@
 function zaw-src-aliases() {
     candidates=($(alias | cut -d '=' -f 1))
-    actions=(zaw-callback-execute zaw-callback-append-to-buffer zaw-callback-replace-buffer view-alias-pager)
-    act_descriptions=("execute" "append to buffer" "replace buffer" "view alias")
+    actions=(zaw-callback-execute zaw-callback-append-to-buffer zaw-callback-insert-to-buffer zaw-callback-replace-buffer view-alias-pager)
+    act_descriptions=("execute" "append to buffer" "insert into edit buffer" "replace buffer" "view alias")
 }
 
 view-alias-pager() {

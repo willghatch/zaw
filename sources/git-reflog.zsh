@@ -7,8 +7,8 @@ function zaw-src-git-reflog () {
                 cand_descriptions+=("${id} ${desc}")
             done
     fi
-    actions=(zaw-callback-append-to-buffer zaw-src-git-commit-checkout zaw-src-git-commit-reset zaw-src-git-commit-rebase zaw-src-git-commit-rebase-interactive zaw-src-git-commit-reset-hard)
-    act_descriptions=("append to edit buffer" "checkout" "reset" "rebase" "rebase interactive from..." "reset hard")
+    actions=(zaw-callback-append-to-buffer zaw-callback-insert-to-buffer zaw-src-git-commit-checkout zaw-src-git-commit-reset zaw-src-git-commit-rebase zaw-src-git-commit-rebase-interactive zaw-src-git-commit-reset-hard)
+    act_descriptions=("append to edit buffer" "insert into edit buffer" "checkout" "reset" "rebase" "rebase interactive from..." "reset hard")
     src_opts=()
 }
 

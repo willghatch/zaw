@@ -8,12 +8,14 @@ function zaw-src-git-log() {
         : ${(A)candidates::=${(f)desc}}
     fi
     actions=(zaw-src-git-log-insert \
+             zaw-src-git-log-append \
              zaw-src-git-log-reset \
              zaw-src-git-log-reset-hard \
              zaw-src-git-log-cherry-pick \
              zaw-src-git-log-create-branch \
              zaw-src-git-log-revert)
     act_descriptions=("insert" \
+                      "append" \
                       "reset" \
                       "reset --hard" \
                       "cherry-pick" \
@@ -27,6 +29,11 @@ function _zaw-src-git-log-strip(){
 }
 
 function zaw-src-git-log-insert(){
+    local hash_val=$(_zaw-src-git-log-strip $1)
+    zaw-callback-insert-to-buffer $hash_val
+}
+
+function zaw-src-git-log-append(){
     local hash_val=$(_zaw-src-git-log-strip $1)
     zaw-callback-append-to-buffer $hash_val
 }
